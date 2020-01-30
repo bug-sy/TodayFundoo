@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import { createMuiTheme } from "@material-ui/core/styles";
-import Drawer from '@material-ui/core/Drawer';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
@@ -9,8 +8,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Popover from '@material-ui/core/Popover';
-
-
 
 const theme = createMuiTheme({
     spacing: 4
@@ -25,12 +22,6 @@ const styles = {
             height: theme.spacing(16),
         },
     },
-
-
-
-
-
-
 };
 
 
@@ -61,11 +52,6 @@ class PopState extends React.Component {
 
     render() {
         const classes = this.props;
-
-
-
-
-
         return (
 
             <PopupState variant="popover" popupId="demo-popup-popover">

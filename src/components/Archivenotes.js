@@ -5,11 +5,12 @@ import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
+import Typography from '@material-ui/core/Typography';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
-
+import UnarchiveOutlinedIcon from '@material-ui/icons/UnarchiveOutlined';
 import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
 
 const theme = createMuiTheme({
@@ -17,84 +18,78 @@ const theme = createMuiTheme({
 });
 
 const styles = {
-    root: {
-        padding: '4px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 400,
-        marginTop: 30,
-        boxShadow: 'None',
-        borderRadius: 0,
-
+    root : {
+        padding : '4px 4px',
+        display : 'flex',
+        alignItems : 'center',
+        width : 310,
+       // marginTop : ,
+        boxShadow : 'None',
+        borderRadius : 0,
     },
 
-    shadow: {
-        width: 420,
-        border: 8,
-
+    shadow : {
+        width : 310,
+        border : 8,
+        marginLeft:12,
     },
 
-    takeNote: {
-        padding: '2px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 400,
-        marginTop: 0,
-        boxShadow: 'None',
-        borderRadius: 0
+    takeNote : {
+        padding : '2px 4px',
+        display : 'flex',
+        alignItems : 'center',
+        width : 400,
+        marginTop : 0,
+        boxShadow : 'None',
+        borderRadius : 0
     },
 
-    input: {
-        marginLeft: theme.spacing(1),
-        flex: 1,
+    input : {
+        marginLeft : theme.spacing(1),
+        flex : 1,
     },
 
     iconButton: {
-        padding: 10,
+        padding : 10,
     },
 
-    divider: {
-        height: 28,
-        margin: 4,
+    divider : {
+        height : 28,
+        margin : 4,
     },
 
-    editIcon: {
-        color: 'inherit',
-
+    editIcon : {
+        color : 'inherit',
     }
 };
 
-class List extends React.Component {
-    render() {
-        const { classes } = this.props;
+class Archnotes extends React.Component {
+    render(){
+        const {classes} = this.props;
         return (
             <div >
                 <Paper className={classes.shadow}>
                     <Paper component="form" className={classes.root}>
-                        <InputBase
-                            className={classes.input}
-                            defaultValue={this.props.notes.title}
-                            inputProps={{ 'aria-label': 'search google maps' }}
-                        />
-                        <IconButton color="primary"
-                            className={classes.iconButton} style={{ backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgPHBhdGggZmlsbD0iIzAwMCIgZD0iTTE3IDR2N2wyIDN2MmgtNnY1bC0xIDEtMS0xdi01SDV2LTJsMi0zVjRjMC0xLjEuOS0yIDItMmg2YzEuMTEgMCAyIC44OSAyIDJ6TTkgNHY3Ljc1TDcuNSAxNGg5TDE1IDExLjc1VjRIOXoiLz4KPC9zdmc+Cg==')", marginLeft: 16 }}
-                        >
-                        </IconButton>
+                        <Typography style={{ width: 260 }}>
+                            {this.props.notes.title}
+                        </Typography>
+                       
                     </Paper>
-                    <Paper component="form" className={classes.takeNote}>
-                        <InputBase
-                            className={classes.input}
-                            defaultValue={this.props.notes.note}
-                            inputProps={{ 'aria-label': 'search google maps' }}
-                        />
+                    <Paper component="form" className={classes.root}>
+                        <Typography
+                        >{this.props.notes.note}
+                        </Typography>
                     </Paper>
-                    <Paper component="form" className={classes.takeNote} >
+                    <Paper component="form" className={classes.root}>
                         <IconButton className={classes.editIcon}><AddAlertIcon /></IconButton>
                         <IconButton className={classes.editIcon}><PersonAddOutlinedIcon /></IconButton>
                         <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>
                         <IconButton className={classes.editIcon}><ImageOutlinedIcon /></IconButton>
-                        <IconButton className={classes.editIcon} onClick={() => this.props.handleArchiveStatusFalse(this.props.nkey)}><ArchiveOutlinedIcon /></IconButton>
-                       
+                        <IconButton className={classes.editIcon} onClick={() => this.props.handleArchiveStatusFalse(this.props.nkey)}><UnarchiveOutlinedIcon/></IconButton>
+                        <PopState
+                            handleTrashStatusChange={this.props.handleTrashStatusChange}
+                            nkey={this.props.nkey}
+                        />
                     </Paper>
                 </Paper>
             </div>
@@ -102,4 +97,4 @@ class List extends React.Component {
     }
 }
 
-export default withStyles(styles)(List);
+export default withStyles(styles)(Archnotes);

@@ -1,9 +1,7 @@
 import React from 'react'
 import { firebaseAuth } from '../firebase'
-import { boardsRef, newPostRef } from '../firebase'
+import { newPostRef } from '../firebase'
 import UserSignup from './User_signup_form'
-
-
 
 class UserSignupmain extends React.Component {
     state =
@@ -35,7 +33,6 @@ class UserSignupmain extends React.Component {
         })
     }
 
-
     //ending of the input user
     //---------------
     //Signup method start 
@@ -52,7 +49,6 @@ class UserSignupmain extends React.Component {
             })
         })
             .catch((err) => {
-
                 if (!email || !password) {
                     if (!email && !password) {
                         this.setState({
@@ -88,27 +84,11 @@ class UserSignupmain extends React.Component {
             })
     }
 
-    
-
-
     //Signin method end 
     //-----------------
     /////render method
     render() {
         return (
-            // <AuthContext.Provider
-            //     value={{
-            //     user: this.state.user,
-            //     signUp: this.signUp,
-            //     logIn: this.logIn,
-            //     error: this.state.emailerror,
-            //     emailError: this.state.emailError[0],
-            //     password: this.state.passworderror,
-            //     passwordError: this.state.passwordError[0],
-
-            // }}>
-            // {this.props.children}
-            // </AuthContext.Provider>
             <div>
                 <UserSignup
                     signUp= {this.signUp}
@@ -123,6 +103,5 @@ class UserSignupmain extends React.Component {
     //render method ends 
 }
 //class ends here
-
 
 export default UserSignupmain

@@ -24,78 +24,20 @@ const theme = createMuiTheme({
 });
 
 const styles = {
-    root: {
-        display: 'flex',
+    root : {
+        display : 'flex',
     },
-
-    appBar: {
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
-            boxShadow:4
-        }),
-    },
-
-    appBarShift: {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: drawerWidth,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
-    },
-
-    menuButton: {
-        marginRight: theme.spacing(2),
-    },
-
-    hide: {
-        display: 'none',
-    },
-
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-        top: '50px',
-        paper: {
-            top: '50px',
-            [theme.breakpoints.up('sm')]: {
-                top: '65px',
-            },
-        },
-        '& .MuiPaper-elevation16': {
-            boxShadow: 4,
-        },
-        '& .MuiBackdrop-root': {
-            backgroundColor: 'rgba(255, 255, 255, 255)',
-        },
-    },
-
-    drawerPaper: {
-        width: drawerWidth,
-        '& .MuiDrawer-paper': {
-            top: '4em',
-        }
-    },
-
-    drawerHeader: {
-        display: 'flex',
-        alignItems: 'center',
-        padding: theme.spacing(0, 1),
-        ...theme.mixins.toolbar,
-        justifyContent: 'flex-end',
-    }, 
+  
 };
 
 const CustomDrawer = withStyles(
     {
-        paper: {
-            top: '65px',
-            boxShadow: 70,
-            width: drawerWidth,
+        paper : {
+            top : '65px',
+            boxShadow : 70,
+            width : drawerWidth,
         }
     }
-
 )(Drawer)
 
 class TemporaryDrawer extends React.Component {
@@ -110,12 +52,8 @@ class TemporaryDrawer extends React.Component {
     }
 
     render() {
-        const classes = this.props;
-
-
-
-
-
+        const {classes} = this.props;
+        
         return (
             <div className={classes.root}>            
                 <CssBaseline />              
@@ -144,7 +82,16 @@ class TemporaryDrawer extends React.Component {
                         {['Notes', 'Reminders'].map((text, index) => (
                             <ListItem 
                             button key={text} 
-                            onClick={() => this.setState({ coloranchorEl:text})}
+                            onClick={() => {
+                                
+                                this.setState({ coloranchorEl:text})
+                                if (text == 'Notes') {
+                                    this.props.DashboardProps.history.push('/Dashboard/Parsing')
+                                }
+                               
+                               
+                                  
+                                }}
                             style={{ backgroundColor: this.state.coloranchorEl === text ? '#feefc3' : '', borderRadius: 16 }}
                             >
                                 <ListItemIcon >{index % 2 === 0 ? <NotesIcon /> : <AddAlertIcon />}</ListItemIcon>
@@ -157,7 +104,9 @@ class TemporaryDrawer extends React.Component {
                         {['Edit labels'].map((text) => (
                             <ListItem 
                             button key={text} 
-                            onClick={() => this.setState({ coloranchorEl: text })}
+                            onClick={() => this.setState({ coloranchorEl: text })
+                            
+                                }
                             style={{ backgroundColor: this.state.coloranchorEl === text ? '#feefc3' : '', borderRadius: 16 }}
                             >
                                 <ListItemIcon>{<EditIcon />}</ListItemIcon>
@@ -170,8 +119,19 @@ class TemporaryDrawer extends React.Component {
                         {['Archive', 'Trash',].map((text, index) => (
                             <ListItem 
                             button key={text} 
-                            onClick={() => this.setState({ coloranchorEl: text })}
-                            style={{ backgroundColor: this.state.coloranchorEl === text ? '#feefc3' : '', borderRadius: 16 }}
+                                onClick={() => {
+
+                                    this.setState({ coloranchorEl: text })
+                                    if (text == 'Archive') {
+                                        this.props.DashboardProps.history.push('/Dashboard/Archive')
+                                    }
+                                    else{
+                                        this.props.DashboardProps.history.push('/Dashboard/Trash')
+                                    }
+                                  
+
+
+                                }}   style={{ backgroundColor: this.state.coloranchorEl === text ? '#feefc3' : '', borderRadius: 16 }}
                             >
                                 <ListItemIcon>{index % 2 === 0 ? <ArchiveIcon /> : <DeleteIcon />}</ListItemIcon>
                                 <ListItemText primary={text} />

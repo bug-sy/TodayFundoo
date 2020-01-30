@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import { Provider } from 'react-redux'
+import store from './components/UsingRedux/store'
 import { BrowserRouter, Route } from 'react-router-dom'
 import PageNotFound from './components/Pages/PageNotFound'
 import Dashboard from './components/Dashboard'
@@ -9,11 +11,13 @@ import UserSigninmain from './components/UserSigninmain'
 import Vert from '/Users/rakesh/Desktop/newsignup/src/components/MMainnote.js'
 import Archive from './components/Archive'
 import Trash from './components/Trash'
+import Stand from '/Users/rakesh/Desktop/newsignup/src/components/standalone/DialogueList.js'
 
 class App extends React.Component{
 
   render(){
     return (
+      <Provider store={store}>
     <div className="App">
       <BrowserRouter >
           <Route exact path="/Vert" component={Vert} />
@@ -23,12 +27,12 @@ class App extends React.Component{
           <Route path="/Dashboard/Trash" component={Trash} />
           <Route path="/Dashboard/Archive" component={Archive} />
           <Route exact path="/Vert " component={Vert } />
-        <Route  path="/Dashboard" 
-        render={() => (<Dashboard/>)}  
-        />
+        <Route  path="/Dashboard" component={Dashboard}/>
+          <Route path="/Stand" component={Stand}/>
         <Route exact path="/" component={PageNotFound} />
       </BrowserRouter>
     </div>
+      </Provider>
             );
   }
 }

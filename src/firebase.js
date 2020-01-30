@@ -61,7 +61,7 @@ export function getNotes(callback){
     })
 }
 
-export function updateNote(key,obj){
+export function updateNote(key, obj){
     const uid = localStorage.getItem('uid')
     console.log(uid+"uid is")
     console.log("key is "+ key)

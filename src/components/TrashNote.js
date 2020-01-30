@@ -1,5 +1,6 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -10,6 +11,7 @@ import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import Vertdot from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
+import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
 
 const theme = createMuiTheme({
     spacing: 4
@@ -20,16 +22,17 @@ const styles = {
         padding: '4px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 400,
-        marginTop: 30,
+        width: 310,
         boxShadow: 'None',
         borderRadius: 0,
 
     },
 
     shadow: {
-        width: 420,
+        width: 310,
         border: 8,
+        marginLeft:8,
+        marginTop:8
 
     },
 
@@ -59,40 +62,32 @@ const styles = {
 
     editIcon: {
         color: 'inherit',
-
     }
 };
 
 class TrashNotes extends React.Component {
     render() {
-        const { classes } = this.props;
+        const {classes} = this.props;
         return (
             <div >
                 <Paper className={classes.shadow}>
                     <Paper component="form" className={classes.root}>
-                        <InputBase
-                            className={classes.input}
-                            defaultValue={this.props.notes.title}
-                            inputProps={{ 'aria-label': 'search google maps' }}
-                        />
-                        <IconButton color="primary"
-                            className={classes.iconButton} style={{ backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+CiAgPHBhdGggZmlsbD0iIzAwMCIgZD0iTTE3IDR2N2wyIDN2MmgtNnY1bC0xIDEtMS0xdi01SDV2LTJsMi0zVjRjMC0xLjEuOS0yIDItMmg2YzEuMTEgMCAyIC44OSAyIDJ6TTkgNHY3Ljc1TDcuNSAxNGg5TDE1IDExLjc1VjRIOXoiLz4KPC9zdmc+Cg==')", marginLeft: 16 }}
-                        >
-                        </IconButton>
+                        <Typography style={{ width: 260 }}>
+                            {this.props.notes.title}
+                        </Typography>
+                       
                     </Paper>
-                    <Paper component="form" className={classes.takeNote}>
-                        <InputBase
-                            className={classes.input}
-                            defaultValue={this.props.notes.note}
-                            inputProps={{ 'aria-label': 'search google maps' }}
-                        />
+                    <Paper component="form" className={classes.root}>
+                        <Typography
+                        >{this.props.notes.note}
+                        </Typography>
                     </Paper>
-                    <Paper component="form" className={classes.takeNote} >
+                    <Paper component="form" className={classes.root} >
                         <IconButton className={classes.editIcon}><AddAlertIcon /></IconButton>
                         <IconButton className={classes.editIcon}><PersonAddOutlinedIcon /></IconButton>
                         <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>
                         <IconButton className={classes.editIcon}><ImageOutlinedIcon /></IconButton>
-                        <IconButton className={classes.editIcon} ><ArchiveOutlinedIcon /></IconButton>
+                        <IconButton className={classes.editIcon} onClick={() => this.props.handleTrashStatusChange(this.props.nkey)}><RestoreFromTrashIcon/></IconButton>
                        
                     </Paper>
                 </Paper>

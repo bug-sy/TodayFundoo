@@ -1,6 +1,6 @@
 import React from 'react';
-import ToggleNote from '../components/toggleNote';
-import Board from '../components/Board'
+import ToggleNote from './toggleNote';
+import Board from './Board'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 
 class ClickAway extends React.Component {

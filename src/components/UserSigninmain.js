@@ -1,6 +1,6 @@
 import React from 'react'
 import { firebaseAuth } from '../firebase'
-import { boardsRef, newPostRef } from '../firebase'
+import { newPostRef } from '../firebase'
 import UserSigin from './User_signin'
 
 const AuthContext = React.createContext()
@@ -35,7 +35,6 @@ componentDidMount() {
                     }
                 })
         }
-
 
 //ending of the input user
 //---------------
@@ -108,10 +107,9 @@ logIn = async (email, password, e) =>
 
     console.log("uid" + success.user.uid)
     localStorage.setItem('uid', success.user.uid)
+        this.props.history.push('/Dashboard/Parsing')
        // const uid = localStorage.getItem('uid')
-       // console.log('app : ' + uid);
-
-       
+       // console.log('app : ' + uid);       
     }).catch((err) =>{
 
     if (!email || !password) 
@@ -160,19 +158,6 @@ logIn = async (email, password, e) =>
 /////render method
 render(){
         return(
-            // <AuthContext.Provider
-            //     value={{
-            //     user: this.state.user,
-            //     signUp: this.signUp,
-            //     logIn: this.logIn,
-            //     error: this.state.emailerror,
-            //     emailError: this.state.emailError[0],
-            //     password: this.state.passworderror,
-            //     passwordError: this.state.passwordError[0],
-
-            // }}>
-            // {this.props.children}
-            // </AuthContext.Provider>
             <div>
                 <UserSigin 
                     logIn={this.logIn}
@@ -184,9 +169,6 @@ render(){
             </div>
              )
         }
-//render method ends 
-        }
-//class ends here
+}
 
-const AuthConsumer = AuthContext.Consumer
 export default AuthProvider

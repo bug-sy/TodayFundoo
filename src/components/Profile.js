@@ -100,7 +100,7 @@ export default function SimplePopover() {
               <Divider />
                 <Typography variant="h5" component="h2">
                   <div className={classes.root}>      
-                  <Avatar className={classes.purple}>OP</Avatar>
+                  <Avatar className={classes.purple}>B</Avatar>
                   </div>
                 </Typography>
                 <Typography className={classes.pos} color="textSecondary">

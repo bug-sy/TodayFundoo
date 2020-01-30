@@ -1,5 +1,3 @@
-import List from './List'
-import data from '../sampleData'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import React from 'react';
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -11,57 +9,54 @@ import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
-import { withStyles } from "@material-ui/styles";
+import {withStyles} from "@material-ui/styles";
 
 const theme = createMuiTheme({
-    spacing: 4
+    spacing : 4
 });
 
 const styles = {
-    root: {
-        padding: '4px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 400,
-        marginTop: 30,
-        boxShadow: 'None',
-        borderRadius: 0,
-
+    root : {
+        padding : '4px 4px',
+        display : 'flex',
+        alignItems : 'center',
+        width : 400,
+        marginTop : 30,
+        boxShadow : 'None',
+        borderRadius : 0,
     },
 
-    shadow: {
-        width: 420,
-        border: 8,
-
+    shadow : {
+        width : 420,
+        border : 8,
     },
 
-    takeNote: {
-        padding: '2px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 400,
-        marginTop: 0,
-        boxShadow: 'None',
-        borderRadius: 0
+    takeNote : {
+        padding : '2px 4px',
+        display : 'flex',
+        alignItems : 'center',
+        width : 400,
+        marginTop : 0,
+        boxShadow : 'None',
+        borderRadius : 0
     },
 
-    input: {
-        marginLeft: theme.spacing(1),
-        flex: 1,
+    input : {
+        marginLeft : theme.spacing(1),
+        flex : 1,
     },
 
-    iconButton: {
-        padding: 10,
+    iconButton : {
+        padding : 10,
     },
 
-    divider: {
-        height: 28,
-        margin: 4,
+    divider : {
+        height : 28,
+        margin : 4,
     },
 
-    editIcon: {
-        color: 'inherit',
-
+    editIcon : {
+        color : 'inherit',
     }
 };
 
@@ -72,8 +67,6 @@ class Board extends React.Component {
         archiveStatus:false,
         pinStatus: false,
         trashStatus: false,
-
-
     }
 
     addTitleBoardInput = React.createRef()
@@ -81,15 +74,13 @@ class Board extends React.Component {
     
     createNewList = (e) => {
         e.preventDefault()
-        const board = {
-           
+        const board = {           
             title: this.addTitleBoardInput.current.value,
             note: this.addContentBoardInput.current.value,
             createdAt: new Date(),
             archiveStatus: this.state.archiveStatus,
             pinStatus: this.state.pinStatus,
             trashStatus: this.state.trashStatus,
-
         }
         if (board.title) {
             this.props.createNewBoard(board)
@@ -101,7 +92,6 @@ class Board extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-
             <div>
                 <ClickAwayListener onClickAway={this.createNewList} >
                     <Paper className={classes.shadow}>
@@ -137,6 +127,5 @@ class Board extends React.Component {
         );
     }
 }
-
 
 export default withStyles(styles)(Board);

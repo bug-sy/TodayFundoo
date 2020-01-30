@@ -44,16 +44,20 @@ export default function CustomizedInputBase() {
                 inputProps={{ 'aria-label': 'search google maps' }}
             />
 
-            <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                <AddOutlinedIcon />
+            <IconButton 
+            type="submit" 
+            className={classes.iconButton} 
+            aria-label="search">
+                <AddOutlinedIcon/>
             </IconButton>
-            <IconButton className={classes.iconButton} aria-label="directions">
-                <EditOutlinedIcon />
+            <IconButton 
+            className={classes.iconButton} 
+            aria-label="directions">
+                <EditOutlinedIcon/>
             </IconButton>
             <IconButton type="submit" className={classes.iconButton} aria-label="search">
-                <ImageOutlinedIcon />
+                <ImageOutlinedIcon/>
             </IconButton >
-
         </Paper>
     );
 }

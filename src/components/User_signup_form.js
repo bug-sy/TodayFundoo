@@ -85,7 +85,6 @@ class UserSign_up_Form extends React.Component {
                                                 size="small"
                                                 variant="outlined"
                                                 margin="normal"
-
                                             />
                                         </div>
                                         </div>
@@ -105,8 +104,7 @@ class UserSign_up_Form extends React.Component {
                                     <div><img className="image" src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="Smiley face" /></div>
                                 </div>
                             </form>
-                        </div>
-                 
+                        </div>                 
         )
     }
 }

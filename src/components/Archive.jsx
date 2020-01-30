@@ -1,10 +1,6 @@
 import React , {Component} from 'react'
-import {ReactDom} from 'react-dom'
-import {Button} from '@material-ui/core'
 import ArchiveNotes from '/Users/rakesh/Desktop/newsignup/src/components/Archivenotes.js'
-import { createUserNote,getNotes,updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
-import Parsing from '/Users/rakesh/Desktop/newsignup/src/components/Pages/Parsing.js'
-import { render } from '@testing-library/react'
+import { getNotes,updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
 
 class Archive extends Component{
     constructor(props){
@@ -47,30 +43,40 @@ class Archive extends Component{
         })
     }
 
-    render() {
+    render(){
         return(
-            <div>
-                {
-                    this.state.notes !== null && 
-                    Object.getOwnPropertyNames(this.state.notes).map((key) => (
+            <div
+                style={{
+                    backgroundColor: 'orange',
+                    display: 'flex',
+                    width: '80%',
+                    maxWidth: '60%',
+                    marginLeft: 180,
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
+                    marginTop:100,
+                    marginLeft:300,
+                    
+                }}
+                
+            >
+            {
+                this.state.notes !== null && 
+                Object.getOwnPropertyNames(this.state.notes).map((key) => (
                 this.state.notes[key].archiveStatus === true &&
                 this.state.notes[key].trashStatus === false &&
-                        <ArchiveNotes
-                        notes = {this.state.notes[key]}
-                        nkey = {key}
-                        handleArchiveStatusFalse = {this.handleArchiveStatusFalse}
-                        handlePinStatusChange={this.handlePinStatus}
-                        handleTrashStatusChange = { this.handleTrashStatusTrue}                    
+                    <ArchiveNotes
+                    notes = {this.state.notes[key]}
+                    nkey = {key}
+                    handleArchiveStatusFalse = {this.handleArchiveStatusFalse}
+                    handlePinStatusChange={this.handlePinStatus}
+                    handleTrashStatusChange = { this.handleTrashStatusTrue}                    
                     />
-                    ))
+                ))
             }
             </div>
         )
     }
-
-
-
-
 }
 
 export default Archive
