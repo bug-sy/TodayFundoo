@@ -1,17 +1,12 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
 import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
-import AddAlertIcon from '@material-ui/icons/AddAlert';
-import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
-import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
-import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
-import Vertdot from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
 import RestoreFromTrashIcon from '@material-ui/icons/RestoreFromTrash';
+import {deleteUserNote} from '../firebase'
 
 const theme = createMuiTheme({
     spacing: 4
@@ -23,16 +18,31 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         width: 310,
-        boxShadow: 'None',
+        boxShadow: 800,
         borderRadius: 0,
-
+    },
+    rootList: {
+        padding: '4px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        width: 510,
+        boxShadow: 800,
+        borderRadius: 0,
     },
 
     shadow: {
         width: 310,
         border: 8,
-        marginLeft:8,
-        marginTop:8
+        marginBottom: 10,
+        marginRight: 10,
+    },
+
+    shadowList: {
+        width: 510,
+        border: 8,
+        marginBottom: 10,
+        marginRight: 10,
+        backgroundColor: "pink"
 
     },
 
@@ -70,23 +80,23 @@ class TrashNotes extends React.Component {
         const {classes} = this.props;
         return (
             <div >
-                <Paper className={classes.shadow}>
-                    <Paper component="form" className={classes.root}>
+                <Paper className={this.props.handleGridOrListWidth ? classes.shadow : classes.shadowList}>
+                    <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                    }>
                         <Typography style={{ width: 260 }}>
                             {this.props.notes.title}
                         </Typography>
                        
                     </Paper>
-                    <Paper component="form" className={classes.root}>
+                    <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                    }>
                         <Typography
                         >{this.props.notes.note}
                         </Typography>
                     </Paper>
-                    <Paper component="form" className={classes.root} >
-                        <IconButton className={classes.editIcon}><AddAlertIcon /></IconButton>
-                        <IconButton className={classes.editIcon}><PersonAddOutlinedIcon /></IconButton>
-                        <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>
-                        <IconButton className={classes.editIcon}><ImageOutlinedIcon /></IconButton>
+                    <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                    } >
+                        <IconButton className={classes.editIcon} onClick={() => deleteUserNote(this.props.nkey)}><DeleteOutlineOutlinedIcon/></IconButton>
                         <IconButton className={classes.editIcon} onClick={() => this.props.handleTrashStatusChange(this.props.nkey)}><RestoreFromTrashIcon/></IconButton>
                        
                     </Paper>

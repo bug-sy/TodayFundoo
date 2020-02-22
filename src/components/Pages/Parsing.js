@@ -17,6 +17,8 @@ class NoteInputandOutput extends React.Component {
         archiveStatus: false,
         pinStatus: false,
         trashStatus: false,
+        title:'',
+        note:'',
     }
 
     handleTrashStatusTrue = (noteId) => {
@@ -37,8 +39,27 @@ class NoteInputandOutput extends React.Component {
         updateNote(noteId, obj)
     }
 
+     handleTitleAndNoteUpdate = (titleAndNote,noteId) => {
+    //     //console.log(",the title,the note,the key------->",titleAndNote.title,titleAndNote.note,noteId)
+         let titleAndNoteObj = this.getTitleAndNoteObj();
+         titleAndNoteObj.title = titleAndNote.title;
+         titleAndNoteObj.note =titleAndNote.note;
+         updateNote(noteId, titleAndNoteObj)  
+     }
+
+    getTitleAndNoteObj = () => {
+        var titleAndNoteObj = {
+            title:this.state.notes.title,
+            note:this.state.notes.note,
+        }
+        return titleAndNoteObj;
+    } 
+
+
     getNodeObj = () => {
         var nodeObj = {
+            //title:this.state.notes.title,
+            //note:this.state.notes.note,
             pinStatus: this.state.pinStatus,
             archiveStatus: this.state.archiveStatus,
             trashStatus: this.state.trashStatus
@@ -76,22 +97,16 @@ render(){
                 boards={this.state.boards}
                 createNewBoard={this.createNewBoard}
             />  
-            <Typography style={{ marginLeft: 300, backgroundColor: 'lime', maxWidth: '60%', }}>Pinned</Typography>
-        
+            <Typography style={{ marginLeft: 300, maxWidth: '60%', }}>Pinned</Typography>
             <div
                 style={{
-                    
-                    backgroundColor: 'orange',
                     display: 'flex',
-                    //width: '80%',
                     alignItems: this.props.gridOrList == true ? '' : 'center',
                     maxWidth: '60%',
                     marginLeft:300,
                     flexDirection: this.props.gridOrList == true ? 'row' : 'column',
-                    flexWrap: 'wrap'
-                }}
-            
-                
+                    flexWrap: 'wrap',
+                }}  
             >
                 {       this.state.notes !== null &&
                         Object.getOwnPropertyNames(this.state.notes).map((key) => (
@@ -103,24 +118,22 @@ render(){
                             nkey={key}
                             handleArchiveStatusChange={this.handleArchiveStatusTrue}
                             handleTrashStatusChange={this.handleTrashStatusTrue} 
-                            handlePinStatusChange={this.handlePinStatusTrue}                           
+                            handlePinStatusChange={this.handlePinStatusTrue} 
+                            handleTitleAndNoteUpdate={this.handleTitleAndNoteUpdate} 
+                            handleGridOrListWidth={this.props.gridOrList}                  
                         />
                     ))}            
             </div>
 
-            <Typography style={{ marginLeft: 300, backgroundColor: 'lime', maxWidth: '60%', marginTop: 10,}}>Others</Typography>
+            <Typography style={{ marginLeft: 300,  maxWidth: '60%', marginTop: 10,}}>Others</Typography>
             <div 
                 style={{
-                    backgroundColor: 'orange',
                     display: 'flex',
-                    //width: '80%',
                     maxWidth: '60%',
                     marginLeft: 300,
                     alignItems: this.props.gridOrList == true ? '' : 'center',
                     flexDirection: this.props.gridOrList == true ? 'row' : 'column',
                     flexWrap: 'wrap',
-                    
-                    
                 }}
             >
           
@@ -136,17 +149,14 @@ render(){
                     handleArchiveStatusChange={this.handleArchiveStatusTrue}
                     handleTrashStatusChange={this.handleTrashStatusTrue}
                     handlePinStatusChange={this.handlePinStatusTrue}
+                    handleTitleAndNoteUpdate={this.handleTitleAndNoteUpdate}
+                    handleGridOrListWidth={this.props.gridOrList} 
                 />
             ))}
             </div>
-           
-
         </div>
     )
 }
-
-
-
 }
 
 const mapStateToProps = state => {

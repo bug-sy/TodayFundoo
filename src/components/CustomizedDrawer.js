@@ -1,5 +1,7 @@
 import React from 'react';
 import NotesIcon from '@material-ui/icons/Notes';
+import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
+import { createLabelNote, getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import EditIcon from '@material-ui/icons/Edit';
@@ -16,6 +18,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import EditLabelDialog from '../components/Label/EditLabelDialog'
+import { Typography } from '@material-ui/core';
 
 const drawerWidth = '250px';
 
@@ -46,9 +50,20 @@ class TemporaryDrawer extends React.Component {
         this.state =
             {
                 showLeft: false,
-                coloranchorEl:'Notes'
+                coloranchorEl:'Notes',
+                labels: null
             }
         this.drawerRef = React.createRef();
+    }
+
+    componentDidMount() {
+        getLabels((labels) => {
+            this.setState({
+                labels: labels
+            }, () => {
+                console.log("I am inside customized drawer --------> :", this.state.labels)
+            })
+        })
     }
 
     render() {
@@ -81,16 +96,17 @@ class TemporaryDrawer extends React.Component {
                     <List >
                         {['Notes', 'Reminders'].map((text, index) => (
                             <ListItem 
-                            button key={text} 
+                            button 
+                            key={text} 
                             onClick={() => {
                                 
                                 this.setState({ coloranchorEl:text})
                                 if (text == 'Notes') {
-                                    this.props.DashboardProps.history.push('/Dashboard/Parsing')
-                                }
-                               
-                               
-                                  
+                                    this.props.DashboardProps.history.push({ pathname:'/Dashboard/Parsing'})
+                                } 
+                                else {
+                                    this.props.DashboardProps.history.push('/Dashboard/Reminder')
+                                } 
                                 }}
                             style={{ backgroundColor: this.state.coloranchorEl === text ? '#feefc3' : '', borderRadius: 16 }}
                             >
@@ -103,14 +119,34 @@ class TemporaryDrawer extends React.Component {
                     <List>
                         {['Edit labels'].map((text) => (
                             <ListItem 
-                            button key={text} 
+                            button 
+                            key={text} 
                             onClick={() => this.setState({ coloranchorEl: text })
-                            
-                                }
+                            }
                             style={{ backgroundColor: this.state.coloranchorEl === text ? '#feefc3' : '', borderRadius: 16 }}
                             >
                                 <ListItemIcon>{<EditIcon />}</ListItemIcon>
-                                <ListItemText primary={text} />
+                                <EditLabelDialog/>
+                            </ListItem>
+                        ))}
+                        {this.state.labels !== null &&
+                            Object.getOwnPropertyNames(this.state.labels).map((key)=>(
+                            <ListItem
+                                button
+                                    key={this.state.labels[key]}
+                                    onClick={() => 
+                                    {
+                                        this.setState({ coloranchorEl: this.state.labels[key] }) 
+                                        this.props.DashboardProps.history.push({
+                                            pathname: '/Dashboard/LabelMapping',
+                                            state: { title: this.state.labels[key].labelName } 
+                                        })
+                                    }
+                                }
+                                    style={{ backgroundColor: this.state.coloranchorEl === this.state.labels[key] ? '#feefc3' : '', borderRadius: 16 }}
+                            >
+                                    <ListItemIcon>{<LabelOutlinedIcon/>}</ListItemIcon>
+                                    <Typography>{this.state.labels[key].labelName}</Typography>
                             </ListItem>
                         ))}
                     </List>

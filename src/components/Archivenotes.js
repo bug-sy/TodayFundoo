@@ -18,20 +18,37 @@ const theme = createMuiTheme({
 });
 
 const styles = {
-    root : {
-        padding : '4px 4px',
-        display : 'flex',
-        alignItems : 'center',
-        width : 310,
-       // marginTop : ,
-        boxShadow : 'None',
-        borderRadius : 0,
+    root: {
+        padding: '4px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        width: 310,
+        boxShadow: 800,
+        borderRadius: 0,
+    },
+    rootList: {
+        padding: '4px 4px',
+        display: 'flex',
+        alignItems: 'center',
+        width: 510,
+        boxShadow: 800,
+        borderRadius: 0,
     },
 
-    shadow : {
-        width : 310,
-        border : 8,
-        marginLeft:12,
+    shadow: {
+        width: 310,
+        border: 8,
+        marginBottom: 10,
+        marginRight: 10,
+    },
+
+    shadowList: {
+        width: 510,
+        border: 8,
+        marginBottom: 10,
+        marginRight: 10,
+        backgroundColor: "pink"
+
     },
 
     takeNote : {
@@ -68,19 +85,22 @@ class Archnotes extends React.Component {
         const {classes} = this.props;
         return (
             <div >
-                <Paper className={classes.shadow}>
-                    <Paper component="form" className={classes.root}>
+                <Paper className={this.props.handleGridOrListWidth ? classes.shadow : classes.shadowList}>
+                    <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                    }>
                         <Typography style={{ width: 260 }}>
                             {this.props.notes.title}
                         </Typography>
                        
                     </Paper>
-                    <Paper component="form" className={classes.root}>
+                    <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                    }>
                         <Typography
                         >{this.props.notes.note}
                         </Typography>
                     </Paper>
-                    <Paper component="form" className={classes.root}>
+                    <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                    }>
                         <IconButton className={classes.editIcon}><AddAlertIcon /></IconButton>
                         <IconButton className={classes.editIcon}><PersonAddOutlinedIcon /></IconButton>
                         <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>

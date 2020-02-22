@@ -1,0 +1,12 @@
+.addReminderContentAlignment{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 170px;
+  width: 350px;
+  overflow-y: scroll;
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+}

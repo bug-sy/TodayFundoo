@@ -1,6 +1,8 @@
 import React , {Component} from 'react'
 import ArchiveNotes from '/Users/rakesh/Desktop/newsignup/src/components/Archivenotes.js'
 import { getNotes,updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { connect } from 'react-redux'
+import { toggleGridorList } from './UsingRedux'
 
 class Archive extends Component{
     constructor(props){
@@ -44,19 +46,18 @@ class Archive extends Component{
     }
 
     render(){
+        console.log("Dashboardprops_in_Archive  = ", this.props)
         return(
             <div
                 style={{
-                    backgroundColor: 'orange',
                     display: 'flex',
-                    width: '80%',
+                    alignItems: this.props.gridOrList == true ? '' : 'center',
                     maxWidth: '60%',
-                    marginLeft: 180,
-                    flexDirection: 'row',
+                    marginLeft: 300,
+                    flexDirection: this.props.gridOrList == true ? 'row' : 'column',
                     flexWrap: 'wrap',
-                    marginTop:100,
-                    marginLeft:300,
-                    
+                    backgroundColor:'green',
+                    marginTop:200   
                 }}
                 
             >
@@ -70,7 +71,8 @@ class Archive extends Component{
                     nkey = {key}
                     handleArchiveStatusFalse = {this.handleArchiveStatusFalse}
                     handlePinStatusChange={this.handlePinStatus}
-                    handleTrashStatusChange = { this.handleTrashStatusTrue}                    
+                    handleTrashStatusChange = { this.handleTrashStatusTrue}  
+                    handleGridOrListWidth={this.props.gridOrList}                  
                     />
                 ))
             }
@@ -79,4 +81,16 @@ class Archive extends Component{
     }
 }
 
-export default Archive
+const mapStateToProps = state => {
+    return {
+        gridOrList: state.gridOrList
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        toggleGridorList: () => dispatch(toggleGridorList())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Archive)

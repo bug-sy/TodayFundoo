@@ -1,8 +1,6 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
-import AccessTimeOutlinedIcon from '@material-ui/icons/AccessTimeOutlined';
-import ReminderPreselection from '../Reminder/ReminderPages/ReminderPreSelection'
-import { createLabelNote, getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+//import { createLabelNote, getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
 import Card from '@material-ui/core/Card';
 import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
@@ -18,7 +16,7 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import Typography from '@material-ui/core/Typography';
 import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
-import { pink } from "@material-ui/core/colors";
+//import { pink } from "@material-ui/core/colors";
 import DialogueNote from '/Users/rakesh/Desktop/newsignup/src/components/standalone/Dialog.js'
 
 const theme = createMuiTheme({
@@ -34,41 +32,12 @@ const styles = {
         boxShadow: 800,
         borderRadius: 0,
     },
-    rootList: {
-        padding: '4px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 510,
-        boxShadow: 800,
-        borderRadius: 0,
-        
-    },
-    iconSpacing:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: '4px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 510,
-        boxShadow: 800,
-        borderRadius: 0,
-    },
 
     shadow: {
         width: 310,
         border: 8,
         marginBottom: 10,
         marginRight: 10,
-    },
-
-    shadowList:{
-        width: 510,
-        border: 8,
-        marginBottom: 10,
-        marginRight: 10,
-        backgroundColor:"pink"
-
     },
 
     takeNote: {
@@ -113,15 +82,7 @@ class List extends React.Component {
             }
     }
 
-    componentDidMount() {
-        getLabels((labels) => {
-            this.setState({
-                labels: labels
-            }, () => {
-                console.log("inside the list data --------> :", this.state.labels)
-            })
-        })
-    }
+  
 
     render() {
         const { classes } = this.props;
@@ -130,16 +91,12 @@ class List extends React.Component {
                 {popupState => (
                     <div>
 
-                        <Paper
-                            className={this.props.handleGridOrListWidth ? classes.shadow : classes.shadowList} 
-                            //className={classes.shadow}
-                        >
-                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
-                            }>
-                                <Typography style={{ width: 490 }} {...bindTrigger(popupState)}>
-                                    {this.props.notes.title}
+                        <Paper className={classes.shadow}  >
+                            <Paper component="form" className={classes.root}>
+                                <Typography style={{ width: 280 }} {...bindTrigger(popupState)}>
+                                    {this.props.title}
                                 </Typography>
-                                <Typography>
+                               {/**  <Typography>
                                     {
                                         this.props.notes.pinStatus == true
                                             ?
@@ -157,64 +114,46 @@ class List extends React.Component {
                                             >
                                             </IconButton>
                                     }
-                                </Typography>
+                                </Typography>*/}
                             </Paper>
-                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList}>
+                            <Paper component="form" className={classes.root}>
                                 <Typography {...bindTrigger(popupState)}
-                                    style={{ width: 300 }}>{this.props.notes.note}
+                                    style={{ width: 300 }}>{this.props.note}
                                 </Typography>
                             </Paper>
-                            <Paper className={this.props.handleGridOrListWidth ? classes.root : classes.rootList}>
+
+                            <Paper className={classes.root}>
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                    {this.props.notes.reminder == null
-                                        ?
-                                        ""
-                                        :
-                                        <Card style={{ display: "flex", flexDirection: "row", width: 170, justifyContent: "space-between" }} >
 
-                                            <AccessTimeOutlinedIcon style={{ fontSize: "medium" }} />
 
-                                            {this.props.notes.reminder}
-                                        </Card>
 
-                                    }
+                                    {Object.getOwnPropertyNames(this.props.labelParsing).map((key) => (
+                                           
+                                        <Card className="noOfLabels">{this.props.labelParsing[key].labelName}</Card>      
+                                    ))} 
+                                              
 
-                                </div>
-                            </Paper>
-                            <Paper className={this.props.handleGridOrListWidth ? classes.root : classes.rootList}>
-                                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-                                    {this.props.notes.noteLabel == null
-                                        ?
-                                        ""
-                                        :
-                                        Object.getOwnPropertyNames(this.props.notes.noteLabel).map((key) => (
-
-                                            <Card className="noOfLabels">{this.props.notes.noteLabel[key].labelName}</Card>
-                                        ))}
+                                      
                                 </div>
 
                             </Paper>
 
-                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.iconSpacing}>
-                                <div ><ReminderPreselection
-                                    nkey={this.props.nkey} /></div>
+                            <Paper component="form" className={classes.root}>
+                                <IconButton className={classes.editIcon} ><AddAlertIcon /></IconButton>
                                 <IconButton className={classes.editIcon}><PersonAddOutlinedIcon /></IconButton>
                                 <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>
                                 <IconButton className={classes.editIcon}><ImageOutlinedIcon /></IconButton>
                                 <IconButton className={classes.editIcon} onClick={() => this.props.handleArchiveStatusChange(this.props.nkey)}><ArchiveOutlinedIcon /></IconButton>
-                                <PopState
+                                {/**<PopState
                                     handleTrashStatusChange={this.props.handleTrashStatusChange}
                                     nkey={this.props.nkey}
-                                />
+                                />*/}
                             </Paper>
                         </Paper>
                         <Dialog
                             {...bindPopover(popupState)}
                         >
-                            <DialogueNote
-                                handleTitleAndNoteUpdate={this.props.handleTitleAndNoteUpdate}
-                                nkey={this.props.nkey}
-                            />
+                            <DialogueNote text={'I am the console text'} />
                         </Dialog>
                     </div>
                 )}

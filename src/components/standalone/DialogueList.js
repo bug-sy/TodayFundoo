@@ -1,7 +1,9 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
+import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
 import { createMuiTheme } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
 import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
@@ -90,12 +92,11 @@ class DialogueList extends React.Component {
         const { classes } = this.props;
 
         return (
-            <PopupState variant="popover" popupId="demo-popup-popover">
-                {popupState => (
+           
             <div>
                         <Paper className={classes.shadow}>
                     <Paper component="form" className={classes.root}>
-                                <Typography style={{ width: 260 }}  {...bindTrigger(popupState)}>
+                                <Typography style={{ width: 260 }} >
                             I am the title
                         </Typography>
                                 <IconButton
@@ -109,9 +110,36 @@ class DialogueList extends React.Component {
                        
 
                     </Paper>
-                            <Paper component="form" className={classes.root}  {...bindTrigger(popupState)}>
+                    <Paper component="form" className="noOfLabels" >
+                        <div className="noOfLabels">
+                        <Card>
+                        I am the
+                        </Card>
+                        </div>
+                        <div className="noOfLabels">
+                        <Card>
+                            I am the
+                        </Card>
+                        </div>
+                        <div className="noOfLabels">
+                            I am the
+                        </div>
+                        <div className="noOfLabels">
+                            I am the
+                        </div>
+                        <div className="noOfLabels">
+                            I am the
+                        </div>
+                        <div className="noOfLabels">
+                            I am the
+                        </div>
+                        <div className="noOfLabels">
+                            I am the
+                        </div>
+                    </Paper>
+                    <Paper component="form" className={classes.root} >
                         <Typography>
-                        I am the note
+                            I am the note
                         </Typography>
                     </Paper>
                     <Paper component="form" className={classes.root}>
@@ -123,21 +151,9 @@ class DialogueList extends React.Component {
                        
                     </Paper>
                 </Paper>
-                        <Dialog
-
-                            {...bindPopover(popupState)}
-
-                        >
-
-                           
-                            <DialogueNote/>
-
-
-                        </Dialog>
+    
             </div>
-        )
-    }
-            </PopupState>
+
         )
     }
 }

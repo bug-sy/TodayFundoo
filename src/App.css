@@ -6,7 +6,6 @@ background-color:lightcyan;
 justify-content:center;
 }
 
-
 .sign_up_content{
   height:800px;
   width:'100%';
@@ -17,18 +16,15 @@ justify-content:center;
 
 .icon{
   height: 450px;
-    /* background-color: lightskyblue;   */
   display : flex ;
   width:700px;
   flex-direction: row;
   justify-content:center;
   margin-top: 200px;
   border: 1px solid black;
-  /* background:lime; */ 
 }
 
 .main_page{
-/* background: cyan;  */
 height:800px;
 width:'100%';
 display: flex;
@@ -38,7 +34,6 @@ justify-content: center;
 .sign_up{
   justify-content:'space-between';
   height: 450px;
-   /* background-color: lightskyblue;  */
   display : flex ;
   width:700px;
   flex-direction: column;
@@ -50,7 +45,6 @@ justify-content: center;
 }
 
 .firstdiv{
- /* background-color: linen;  */
 height:300px;
 margin-left: 30px;
 }
@@ -66,7 +60,6 @@ align-items: center;
 border-style: outset;
 width : 1200px;
 height : 1000px;
-/* background-color:lightcyan; */
 margin-left: 600px;
 border: 1px solid lightgray; 
 flex-direction: row; 
@@ -83,7 +76,6 @@ flex-direction: row;
 }
 
 .image{
-   /* background-color: lightpink;  */
   margin: 5px;
   height :200px;
   width :200px;
@@ -97,21 +89,17 @@ display: none;
 }
 
 .firstdiv{
- /* background-color: linen;  */
 height:300px;
 }
 
 .icon{
   height: 450px;
-   /* background-color: lightskyblue;  */
   display : flex ;
   width:700px;
   flex-direction: row;
   justify-content:center;
   margin-top: 75px;
-  /* background:lime;  */
-  border:0 
-  
+  border:0  
 }
 
 .firstname{
@@ -137,28 +125,15 @@ height:300px;
   width:400px;
   background-color: lawngreen;
   margin-left: 25px;
-
- 
-
 }
-
 }
-
-
-
 
 .divisionforNotes{
   height:150px;
   width:400px;
   margin-left: 480px;
   margin-top: 150px;
-  background-color: lightyellow;
 }
 
-
-
-/* for notes */
-
-/* notes end */
 
 

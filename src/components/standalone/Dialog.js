@@ -1,5 +1,6 @@
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -92,11 +93,11 @@ class DialogueNote extends React.Component {
         const { classes } = this.props;
         return (
             <div>
-                <ClickAwayListener onClickAway={this.createNewList} >
+                <ClickAwayListener onClickAway={"#"} >
                     <Paper className={classes.shadow}>
                         <Paper component="form" className={classes.root}>
                             <InputBase
-                                
+                                inputRef={this.addTitleBoardInput}
                                 className={classes.input}
                                 placeholder="Title"
                                 inputProps={{ 'aria-label': 'search google maps' }}
@@ -107,7 +108,7 @@ class DialogueNote extends React.Component {
                         </Paper>
                         <Paper component="form" className={classes.takeNote}>
                             <InputBase
-                               
+                                inputRef={this.addContentBoardInput}
                                 className={classes.input}
                                 placeholder="Take a note...."
                                 inputProps={{ 'aria-label': 'search google maps' }}
@@ -119,6 +120,7 @@ class DialogueNote extends React.Component {
                             <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>
                             <IconButton className={classes.editIcon}><ImageOutlinedIcon /></IconButton>
                             <IconButton className={classes.editIcon}><ArchiveOutlinedIcon /></IconButton>
+                            <Typography className={classes.editIcon} onClick={() => this.props.handleTitleAndNoteUpdate({ title: this.addTitleBoardInput.current.value, note: this.addContentBoardInput.current.value}, this.props.nkey)}>Close</Typography>
                         </Paper>
                     </Paper>
                 </ClickAwayListener>

@@ -157,8 +157,6 @@ class PersistentDrawer extends React.Component {
                                     inputProps={{ 'aria-label': 'search google maps' }}
                                     value={this.props.gridOrList}
                                 />
-
-
                             </Paper>
                         
                         <div className={classes.grow} />

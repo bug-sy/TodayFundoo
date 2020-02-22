@@ -8,6 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
 import Paper from '@material-ui/core/Paper';
 import Popover from '@material-ui/core/Popover';
+import AddLabel from './Label/NoteCardLabel'
 
 const theme = createMuiTheme({
     spacing: 4
@@ -77,7 +78,7 @@ class PopState extends React.Component {
                                         <ListItemText onClick={() => this.props.handleTrashStatusChange(this.props.nkey)} primary="Delete Note" />
                                     </StyledMenuItem>
                                     <StyledMenuItem>
-                                        <ListItemText style={{ fontSize: 8 }} primary="Add Label" />
+                                        <AddLabel nkey={this.props.nkey}/>
                                     </StyledMenuItem>
                                     <StyledMenuItem>
                                         <ListItemText primary="Add Drawing" onClick='handleClick' />

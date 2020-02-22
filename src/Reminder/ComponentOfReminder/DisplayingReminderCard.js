@@ -1,25 +1,23 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
 import AccessTimeOutlinedIcon from '@material-ui/icons/AccessTimeOutlined';
-import ReminderPreselection from '../Reminder/ReminderPages/ReminderPreSelection'
-import { createLabelNote, getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+//import ReminderPreselection from '../Reminder/ReminderPages/ReminderPreSelection'
+import { getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
 import Card from '@material-ui/core/Card';
 import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Dialog from '@material-ui/core/Dialog';
 import { createMuiTheme } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
-import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
-import AddAlertIcon from '@material-ui/icons/AddAlert';
 import PersonAddOutlinedIcon from '@material-ui/icons/PersonAddOutlined';
 import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import Typography from '@material-ui/core/Typography';
 import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
-import { pink } from "@material-ui/core/colors";
 import DialogueNote from '/Users/rakesh/Desktop/newsignup/src/components/standalone/Dialog.js'
+
 
 const theme = createMuiTheme({
     spacing: 4
@@ -41,18 +39,6 @@ const styles = {
         width: 510,
         boxShadow: 800,
         borderRadius: 0,
-        
-    },
-    iconSpacing:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: '4px 4px',
-        display: 'flex',
-        alignItems: 'center',
-        width: 510,
-        boxShadow: 800,
-        borderRadius: 0,
     },
 
     shadow: {
@@ -62,13 +48,12 @@ const styles = {
         marginRight: 10,
     },
 
-    shadowList:{
+    shadowList: {
         width: 510,
         border: 8,
         marginBottom: 10,
         marginRight: 10,
-        backgroundColor:"pink"
-
+        backgroundColor: "pink"
     },
 
     takeNote: {
@@ -130,15 +115,13 @@ class List extends React.Component {
                 {popupState => (
                     <div>
 
-                        <Paper
-                            className={this.props.handleGridOrListWidth ? classes.shadow : classes.shadowList} 
-                            //className={classes.shadow}
-                        >
+                        <Paper className={this.props.handleGridOrListWidth ? classes.shadow : classes.shadowList}>
                             <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
                             }>
-                                <Typography style={{ width: 490 }} {...bindTrigger(popupState)}>
+                                <Typography style={{ width: 280 }} {...bindTrigger(popupState)}>
                                     {this.props.notes.title}
                                 </Typography>
+                             
                                 <Typography>
                                     {
                                         this.props.notes.pinStatus == true
@@ -159,12 +142,14 @@ class List extends React.Component {
                                     }
                                 </Typography>
                             </Paper>
-                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList}>
+                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                            }>
                                 <Typography {...bindTrigger(popupState)}
                                     style={{ width: 300 }}>{this.props.notes.note}
                                 </Typography>
                             </Paper>
-                            <Paper className={this.props.handleGridOrListWidth ? classes.root : classes.rootList}>
+                            <Paper className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                            }>
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                                     {this.props.notes.reminder == null
                                         ?
@@ -181,7 +166,8 @@ class List extends React.Component {
 
                                 </div>
                             </Paper>
-                            <Paper className={this.props.handleGridOrListWidth ? classes.root : classes.rootList}>
+                            <Paper className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                            }>
                                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                                     {this.props.notes.noteLabel == null
                                         ?
@@ -195,9 +181,9 @@ class List extends React.Component {
 
                             </Paper>
 
-                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.iconSpacing}>
-                                <div ><ReminderPreselection
-                                    nkey={this.props.nkey} /></div>
+                            <Paper component="form" className={this.props.handleGridOrListWidth ? classes.root : classes.rootList
+                            }>
+                                
                                 <IconButton className={classes.editIcon}><PersonAddOutlinedIcon /></IconButton>
                                 <IconButton className={classes.editIcon}><ColorLensOutlinedIcon /></IconButton>
                                 <IconButton className={classes.editIcon}><ImageOutlinedIcon /></IconButton>
@@ -211,10 +197,7 @@ class List extends React.Component {
                         <Dialog
                             {...bindPopover(popupState)}
                         >
-                            <DialogueNote
-                                handleTitleAndNoteUpdate={this.props.handleTitleAndNoteUpdate}
-                                nkey={this.props.nkey}
-                            />
+                            <DialogueNote text={'I am the console text'} />
                         </Dialog>
                     </div>
                 )}
