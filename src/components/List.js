@@ -205,6 +205,7 @@ class List extends React.Component {
                                 <PopState
                                     handleTrashStatusChange={this.props.handleTrashStatusChange}
                                     nkey={this.props.nkey}
+                                    notes={this.props.notes}
                                 />
                             </Paper>
                         </Paper>
@@ -214,6 +215,7 @@ class List extends React.Component {
                             <DialogueNote
                                 handleTitleAndNoteUpdate={this.props.handleTitleAndNoteUpdate}
                                 nkey={this.props.nkey}
+                              
                             />
                         </Dialog>
                     </div>

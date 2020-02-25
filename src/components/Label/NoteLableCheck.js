@@ -1,7 +1,7 @@
 import React from 'react';
 import CheckBoxOutlineBlankOutlinedIcon from '@material-ui/icons/CheckBoxOutlineBlankOutlined';
 import TextField from '@material-ui/core/TextField';
-import { createLabelNoteInNotes } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { createLabelNoteInNotes, deleteLabelNoteInNotes } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
 import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 
@@ -15,14 +15,20 @@ export default class LabelValues extends React.Component {
     }
 
     deleteNewLabel =  (labelNameToBeDeleted) => {
-        // const noteLabel = {
-        //     labelId: this.props.nkey,
-        //     labelName: this.props.labels.labelName
+        // if( this.props.notes.noteLabel !== undefined )
+        //     {
+                
+             Object.getOwnPropertyNames(this.props.notes.noteLabel).map((keyOfLabel) => (
+                
+                     this.props.notes.noteLabel[keyOfLabel].labelName == labelNameToBeDeleted
+                     ?
+                     deleteLabelNoteInNotes(this.props.nKeyOfNoteCard, keyOfLabel)  
+                     :
+                     null  
+             ))
+            
         // }
-        // if (noteLabel.labelName) {
-        //     createLabelNoteInNotes(this.props.nKeyOfNoteCard, noteLabel)
-        // }
-        console.log("labelNameToBeDeleted----->", labelNameToBeDeleted)
+  
     }
 
 

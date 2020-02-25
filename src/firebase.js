@@ -56,6 +56,12 @@ export function createLabelNoteInNotes(KeyOfNoteCard,labelKeyData) {
     console.log("labelData entered in firebase")
 }
 
+export function deleteLabelNoteInNotes(KeyOfNoteCard, labelKey){
+    const uid = localStorage.getItem('uid')
+    console.log("uid----->", uid, "labelData ------->", labelKey)
+    newPostRef.ref('/users /' + uid + '/notes/' + KeyOfNoteCard + '/noteLabel/' + labelKey).remove();
+}
+
 export function deleteUserNote(key) {
     const uid = localStorage.getItem('uid')
     console.log(" key for deletion is=>>>>>",key)

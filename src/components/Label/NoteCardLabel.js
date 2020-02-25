@@ -94,6 +94,7 @@ class AddLabel extends React.Component {
                                         labels={this.state.labels[key]}
                                         nkey={key}
                                         nKeyOfNoteCard={this.props.nkey}
+                                        notes={this.props.notes}
                                     />
                                 ))}
                         </div>

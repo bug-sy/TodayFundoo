@@ -78,7 +78,9 @@ class PopState extends React.Component {
                                         <ListItemText onClick={() => this.props.handleTrashStatusChange(this.props.nkey)} primary="Delete Note" />
                                     </StyledMenuItem>
                                     <StyledMenuItem>
-                                        <AddLabel nkey={this.props.nkey}/>
+                                        <AddLabel nkey={this.props.nkey}
+                                            notes={this.props.notes}
+                                        />
                                     </StyledMenuItem>
                                     <StyledMenuItem>
                                         <ListItemText primary="Add Drawing" onClick='handleClick' />
