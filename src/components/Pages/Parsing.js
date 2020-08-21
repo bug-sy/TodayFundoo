@@ -1,12 +1,12 @@
 import React from 'react';
-import ClickAwayforNotes from '../ClickAwayforNotes.js'
+import ClickAwayforNotes from '../clickAwayforNotes'
 import { toggleGridorList } from '../UsingRedux'
 import Board from '../Board'
 import { connect } from 'react-redux'
-import { newPostRef } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
-import List from '/Users/rakesh/Desktop/newsignup/src/components/List.js'
-import data from '/Users/rakesh/Desktop/newsignup/src/sampleData.js'
-import { createUserNote, getNotes, updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { newPostRef } from '../../firebase.js'
+import List from '../../components/List.js'
+import data from '../../../src/sampleData.js'
+import { createUserNote, getNotes, updateNote } from '../../firebase.js'
 import { Typography } from '@material-ui/core';
 
 

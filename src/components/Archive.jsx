@@ -1,6 +1,6 @@
 import React , {Component} from 'react'
-import ArchiveNotes from '/Users/rakesh/Desktop/newsignup/src/components/Archivenotes.js'
-import { getNotes,updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import ArchiveNotes from './Archivenotes.js'
+import { getNotes,updateNote } from '../../src/firebase.js'
 import { connect } from 'react-redux'
 import { toggleGridorList } from './UsingRedux'
 

@@ -2,8 +2,8 @@ import React from 'react';
 import NoteLableCheck from './NoteLableCheck'
 import TextField from '@material-ui/core/TextField';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
-import { getLabels, createLabelNoteInNotes } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import { getLabels, createLabelNoteInNotes } from '../../firebase.js'
+import '../AddLable/AddLabel.css'
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles';

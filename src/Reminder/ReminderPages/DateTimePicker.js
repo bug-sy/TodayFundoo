@@ -15,7 +15,7 @@ import {
     KeyboardTimePicker,
     KeyboardDatePicker,
 } from '@material-ui/pickers';
-import { createReminderInNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { createReminderInNote } from '../../firebase.js'
 
 export default class NoteInputandOutput extends React.Component {
     constructor(props) {

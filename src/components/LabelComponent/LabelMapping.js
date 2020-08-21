@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import ForLableMapping from './LabelIdMatching'
-import { createUserNote, getNotes, updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { createUserNote, getNotes, updateNote } from '../../firebase.js'
 
 export default class LabelMapping extends React.Component {
     state = {

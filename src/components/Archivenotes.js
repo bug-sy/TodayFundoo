@@ -11,7 +11,7 @@ import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import UnarchiveOutlinedIcon from '@material-ui/icons/UnarchiveOutlined';
-import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
+import PopState from './PopoverPopupState.js'
 
 const theme = createMuiTheme({
     spacing: 4

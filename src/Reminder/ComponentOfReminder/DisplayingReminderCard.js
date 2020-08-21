@@ -2,9 +2,9 @@ import { withStyles } from "@material-ui/styles";
 import React from 'react';
 import AccessTimeOutlinedIcon from '@material-ui/icons/AccessTimeOutlined';
 //import ReminderPreselection from '../Reminder/ReminderPages/ReminderPreSelection'
-import { getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { getLabels } from '../../firebase.js'
 import Card from '@material-ui/core/Card';
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import '../../components/AddLable/AddLabel.css'
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Dialog from '@material-ui/core/Dialog';
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -15,8 +15,8 @@ import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import Typography from '@material-ui/core/Typography';
-import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
-import DialogueNote from '/Users/rakesh/Desktop/newsignup/src/components/standalone/Dialog.js'
+import PopState from '../../components/PopoverPopupState.js'
+import DialogueNote from '../../components/standalone/Dialog.js'
 
 
 const theme = createMuiTheme({
@@ -129,7 +129,7 @@ class List extends React.Component {
                                             <img
                                                 onClick={() => this.props.handlePinStatusChange(this.props.nkey, false)}
                                                 color="primary"
-                                                src={require('/Users/rakesh/Desktop/newsignup/src/components/Asset/download.png')} style={{ height: 16, width: 16 }}
+                                                src={require('../../components/Asset/download.png')} style={{ height: 16, width: 16 }}
                                             />
                                             :
                                             <IconButton

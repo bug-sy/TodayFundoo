@@ -16,7 +16,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import RefreshOutlinedIcon from '@material-ui/icons/RefreshOutlined';
-import ClickAwayforNotes from './ClickAwayforNotes';
+import ClickAwayforNotes from './clickAwayforNotes';
 import Setting from './Settings'
 import CustomizedDrawer from './CustomizedDrawer'
 import { createMuiTheme } from "@material-ui/core/styles";

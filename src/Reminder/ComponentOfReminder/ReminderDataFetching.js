@@ -1,9 +1,9 @@
 import React from 'react';
 import DisplayReminder from './DisplayingReminderCard'
-import { newPostRef } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
-import List from '/Users/rakesh/Desktop/newsignup/src/components/List.js'
-import data from '/Users/rakesh/Desktop/newsignup/src/sampleData.js'
-import { createUserNote, getNotes, updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { newPostRef } from '../..//firebase.js'
+import List from '../../components/List.js'
+import data from '../../sampleData.js'
+import { createUserNote, getNotes, updateNote } from '../../firebase.js'
 import { Typography } from '@material-ui/core';
 import { connect } from 'react-redux'
 import { toggleGridorList } from '../../components/UsingRedux'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import TrashNotes from '/Users/rakesh/Desktop/newsignup/src/components/TrashNote.js'
-import { getNotes, updateNote } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import TrashNotes from './TrashNote.js'
+import { getNotes, updateNote } from '../firebase.js'
 import { connect } from 'react-redux'
 import { toggleGridorList } from './UsingRedux'
 

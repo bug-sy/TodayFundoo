@@ -1,7 +1,7 @@
 import React from 'react';
 import NotesIcon from '@material-ui/icons/Notes';
 import LabelOutlinedIcon from '@material-ui/icons/LabelOutlined';
-import { createLabelNote, getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { createLabelNote, getLabels } from '../firebase.js'
 import AddAlertIcon from '@material-ui/icons/AddAlert';
 import ArchiveIcon from '@material-ui/icons/Archive';
 import EditIcon from '@material-ui/icons/Edit';

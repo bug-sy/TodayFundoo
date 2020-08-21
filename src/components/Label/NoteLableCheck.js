@@ -1,8 +1,8 @@
 import React from 'react';
 import CheckBoxOutlineBlankOutlinedIcon from '@material-ui/icons/CheckBoxOutlineBlankOutlined';
 import TextField from '@material-ui/core/TextField';
-import { createLabelNoteInNotes, deleteLabelNoteInNotes } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import { createLabelNoteInNotes, deleteLabelNoteInNotes } from '../../firebase.js'
+import '../AddLable/AddLabel.css'
 import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 
 export default class LabelValues extends React.Component {

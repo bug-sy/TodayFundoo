@@ -2,10 +2,10 @@ import React from 'react';
 import DateTimePicker from './DateTimePicker'
 import TextField from '@material-ui/core/TextField';
 import AddAlertIcon from '@material-ui/icons/AddAlert';
-import '/Users/rakesh/Desktop/newsignup/src/Reminder/Reminder.css'
+import '../Reminder.css'
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
-import { getLabels, createLabelNoteInNotes } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import { getLabels, createLabelNoteInNotes } from '../../firebase.js'
+import '../../components/AddLable/AddLabel.css'
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/styles';

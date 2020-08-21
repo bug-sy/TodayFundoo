@@ -1,8 +1,8 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
-//import { createLabelNote, getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+
 import Card from '@material-ui/core/Card';
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import '../AddLable/AddLabel.css'
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 import Dialog from '@material-ui/core/Dialog';
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -15,9 +15,9 @@ import ColorLensOutlinedIcon from '@material-ui/icons/ColorLensOutlined';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import Typography from '@material-ui/core/Typography';
-import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
+import PopState from '../../components/PopoverPopupState.js'
 //import { pink } from "@material-ui/core/colors";
-import DialogueNote from '/Users/rakesh/Desktop/newsignup/src/components/standalone/Dialog.js'
+import DialogueNote from '../../components/standalone/Dialog.js'
 
 const theme = createMuiTheme({
     spacing: 4

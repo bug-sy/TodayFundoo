@@ -2,13 +2,13 @@ import React from 'react';
 import LabelValues from './LabelValues'
 import TextField from '@material-ui/core/TextField';
 import Divider from '@material-ui/core/Divider';
-import { createLabelNote,getLabels } from '/Users/rakesh/Desktop/newsignup/src/firebase.js'
+import { createLabelNote,getLabels } from '../../firebase.js'
 import Dialog from '@material-ui/core/Dialog';
 import LabelTags from './LabelTags'
 import CheckOutlinedIcon from '@material-ui/icons/CheckOutlined';
 import CloseOutlinedIcon from '@material-ui/icons/CloseOutlined';
 import Typography from '@material-ui/core/Typography';
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import '../AddLable/AddLabel.css'
 
 export default class AlertDialog extends React.Component {
     constructor(props) {

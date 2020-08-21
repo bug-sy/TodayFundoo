@@ -1,6 +1,6 @@
 import { withStyles } from "@material-ui/styles";
 import React from 'react';
-import '/Users/rakesh/Desktop/newsignup/src/components/AddLable/AddLabel.css'
+import '../AddLable/AddLabel.css'
 import { createMuiTheme } from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
@@ -13,9 +13,9 @@ import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import ArchiveOutlinedIcon from '@material-ui/icons/ArchiveOutlined';
 import Typography from '@material-ui/core/Typography';
 import Dialog from '@material-ui/core/Dialog';
-import PopState from '/Users/rakesh/Desktop/newsignup/src/components/PopoverPopupState.js'
+import PopState from '../../components/PopoverPopupState.js'
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import DialogueNote from '/Users/rakesh/Desktop/newsignup/src/components/standalone/Dialog.js'
+import DialogueNote from '../../components/standalone/Dialog.js'
 
 const theme = createMuiTheme({
     spacing: 4
