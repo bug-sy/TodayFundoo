@@ -16,6 +16,8 @@ import Archive from './components/Archive'
 import Trash from './components/Trash'
 import AddLabel from './components/Label/NoteCardLabel'
 import Stand from '../src/components/standalone/DialogueList.js'
+import Inputtest from '../src/components/testcases/testing'
+import Pusher from '../src/components/testcases/Pusher'
 
 class App extends React.Component{
 
@@ -24,12 +26,11 @@ class App extends React.Component{
       <Provider store={store}>
     <div className="App">
       <BrowserRouter >
-      
+      <Route exact path="/inputtest" component={Pusher} />
           <Route exact path="/Vert" component={Vert} />
           <Route exact path="/Dashboard/Parsing" component={Parsing} />
           <Route path="/EditLabelDialog" component={EditLabelDialog}/>
-          <Route path="/Signin" component={UserSigninmain} />
-         
+          <Route path="/Signin" component={UserSigninmain} />        
           <Route path="/Signup" component={UserSignupmain} />
           <Route path="/Dashboard/Trash" component={Trash} />
           <Route path="/Dashboard/Archive" component={Archive} />

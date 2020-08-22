@@ -16,18 +16,26 @@ class UserForm extends React.Component {
                             <div className="sign_in_button"><h1> Sign In </h1></div>
                             <div className="sign_up_button"><h4> Use your google account </h4></div>
                             <div >
+                            <input
+                              onChange={(event) => {
+                                this.setState({input: event.target.value})}}
+                            type="text" />
+
                                 <TextField
                                     className="text"
                                     inputRef={this.emailInput}
                                     name='email'
                                     error={this.props.emailError}
+                                    id = 'email'
                                     label="Email"
                                     type="Email"
                                     size="small"
-                                    //fullWidth="true"
                                     variant="outlined"
                                     margin="normal"
                                     helperText={this.props.error}
+                                    onChange={(event) => {
+                                        this.setState({email: event.target.value})}}
+                                        
                                 /><br />
                                 <Grid container spacing={3}>
                                     <Grid item xs={12} variant="contained" >
@@ -43,12 +51,14 @@ class UserForm extends React.Component {
                                     label="Password"
                                     name='password'
                                     type="password"
-                                    autoComplete="current-password"
+                                    autoComplete="current-password" 
                                     size="small"
                                     variant="outlined"
                                     margin="normal"
                                     error={this.props.passwordError}
-                                    helperText={this.props.password}
+                                    helperText={this.props.password}      
+                                    onChange={(event) => {
+                                        this.setState({passwordTest: event.target.value})}}                                                          
                                 />
                             </div>
 

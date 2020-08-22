@@ -10,6 +10,11 @@ it("should render initial layout", () => {
     // when
     const component = shallow(<ComponentName />);
     // then
-    expect(component.getElements()).toMatchSnapshot();
+    const form = component.find('input');
+    form.props().onChange({target: {
+        name: 'myName',
+        value: 'myValue'
+     }});
+     expect(component.state('input')).toEqual('myValue');
 });
 });
