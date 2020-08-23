@@ -57,9 +57,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SimplePopover() {
-
+  
   const classes = useStyles();
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
+  
   const bull = <span className={classes.bullet}>•</span>;
 
   const handleClick = event => {

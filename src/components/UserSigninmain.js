@@ -100,6 +100,9 @@ signUp = async (first_name,last_name,email, password, e) =>
 logIn = async (email, password, e) => 
 {
     e.preventDefault()
+
+    
+
     await  firebaseAuth.signInWithEmailAndPassword(
         email,
         password,
