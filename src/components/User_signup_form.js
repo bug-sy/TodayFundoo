@@ -24,6 +24,7 @@ class UserSign_up_Form extends React.Component {
                                         <div>
                                             <h2 className="sign_up_button">Sign up for Account</h2>
                                             <TextField
+                                                name= "firstname"
                                                 inputRef={this.first_name}
                                                 className="firstname"
                                                 label="First_name"
@@ -31,8 +32,13 @@ class UserSign_up_Form extends React.Component {
                                                 type="text"
                                                 size="small"
                                                 variant="outlined"
+                                                onChange={(event) => {
+                                                    this.setState({firstnameTest: event.target.value})
+                                                }}
+                                                    
                                             />
                                             <TextField
+                                                name= "lastname"
                                                 inputRef={this.last_name}
                                                 margin="dense"
                                                 label="Last name"
@@ -40,11 +46,16 @@ class UserSign_up_Form extends React.Component {
                                                 size="small"
                                                 variant="outlined"
                                                 className="lastname"
+                                                onChange={(event) => {
+                                                    this.setState({lastnameTest: event.target.value})
+                                                }}
+                                                    
                                             />
                                         </div>
 
                                         <div>
                                             <TextField
+                                                name= "email"
                                                 className="Email"
                                                 inputRef={this.emailInput}
                                                 id="#"
@@ -55,6 +66,10 @@ class UserSign_up_Form extends React.Component {
                                                 margin="normal"
                                                 error={this.props.emailError}
                                                 helperText={this.props.error}
+                                                onChange={(event) => {
+                                                    this.setState({emailTest: event.target.value})
+                                                }}
+                                                    
                                             />
                                             <br />
                                             <Grid item xs  >
@@ -63,6 +78,7 @@ class UserSign_up_Form extends React.Component {
                                         <div>
 
                                             <TextField
+                                                name="password"
                                                 inputRef={this.passwordInput}
                                                 id="#1"
                                                 label="Password"
@@ -73,10 +89,15 @@ class UserSign_up_Form extends React.Component {
                                                 margin="normal"
                                                 error={this.props.passwordError}
                                                 helperText={this.props.password}
+                                                onChange={(event) => {
+                                                    this.setState({passwordTest: event.target.value})
+                                                }}
+                                                    
                                             />
 
                                         <div>
                                             <TextField
+                                                name= "confirmPassword"
                                                 inputRef={this.confirmpasswordInput}
                                                 id="#2"
                                                 label="Confirm Password"
@@ -85,6 +106,9 @@ class UserSign_up_Form extends React.Component {
                                                 size="small"
                                                 variant="outlined"
                                                 margin="normal"
+                                                onChange={(event) => {
+                                                    this.setState({confirmPasswordTest: event.target.value})}}
+                                                    
                                             />
                                         </div>
                                         </div>
